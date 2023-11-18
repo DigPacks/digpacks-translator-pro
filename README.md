@@ -55,9 +55,12 @@ In order to deploy and run this service, you'll need:
 ### 4. Power Automate
 - Power Automate Premium licensing for all users.
 
-#### Installation
+## Installation / deployment
 
-a. 
+### Cost estimation
+Pricing varies dependant on region and consumption, so it is not possible to predict exact costs for your usage; but you can use the [Azure pricing calculator](https://azure.com/e/8ffbe5b1919c4c72aed89b022294df76) for the resources used.
+
+You cannot use the Free tier of Translator service as this does not support Document translation. 
 
 
 

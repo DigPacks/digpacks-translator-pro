@@ -27,8 +27,8 @@ In order to deploy and run this service, you'll need:
 - The System Administrator role on your target environment(s). 
 
 ## Services used
-- Power Apps
-- Power Automate
+- [Power Apps](https://www.microsoft.com/en-us/power-platform/products/power-apps)
+- [Power Automate](https://powerautomate.microsoft.com/en-gb/)
 - [Azure AI Translator](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/translator/)
 - [Azure Blob Storage Account](https://azure.microsoft.com/en-gb/products/storage/blobs/)
 

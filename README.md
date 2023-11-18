@@ -1,4 +1,4 @@
-# DigPacks Translator Pro
+# DigPacks Document Translator Pro
 
 ## Introduction
 1)  A <b>Power Platform application</b> utilising the Azure AI Translator service, allowing users to upload single or multiple documents and translate them from and to 69 supported languages. 

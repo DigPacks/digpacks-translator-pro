@@ -66,7 +66,7 @@ In order to deploy and run this service, you'll need:
 ### Cost estimation
 Pricing varies dependant on region and consumption, so it is not possible to predict exact costs for your usage; but you can use the [Azure pricing calculator](https://azure.com/e/8ffbe5b1919c4c72aed89b022294df76) for the resources used.
 
-Note: You cannot use the Free tier of Translator service as this does not support Document translation. 
+Note: You cannot use the Free tier of the Azure AI Translator service as this does not support document translation. 
 
 :boom: You should not incur costs if the solution is not used, but delete the resources and redeploy them if you like to avoid charges. You may incur charges if you do not use the solution but deploy, for example but not limited to, a higher tier than S1 for the Translator service.
 

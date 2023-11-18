@@ -7,6 +7,16 @@
 4) The <b>source document’s language is automatically detected</b>; meaning that users don’t need to know what language the source document is in before translating it to, most likely, English. 
 5) Translate <b>large files in large batches</b> – individual document size up to 40MB, up to 1000 documents in one translation batch (max 250MB per batch).
 
+## Azure account permissions
+
+IMPORTANT: In order to deploy and run this service, you'll need:
+
+- Azure account: If you're new to Azure, get an Azure account for free and you'll get some free Azure credits to get started.
+- An Azure subscription.
+- Azure account permissions: Your account must have Microsoft.Authorization/roleAssignments/write permissions, such as RBAC Administrator, User Access Administrator or Owner. If you don't have subscription-level permissions, you must be granted RBAC for an existing resource group and deploy to that existing group.
+- Your Azure account also needs Microsoft.Resources/deployments/write permissions on the subscription level.
+- If you are not sure if you have the correct permissions, ask your Global Administrator
+
 #### Services used
 - Power Apps
 - Power Automate

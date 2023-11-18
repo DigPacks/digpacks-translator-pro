@@ -62,6 +62,8 @@ Pricing varies dependant on region and consumption, so it is not possible to pre
 
 You cannot use the Free tier of Translator service as this does not support Document translation. 
 
+:boom: You should not incur significant costs if the solution is not used, but delete the resources and redeploy them if you like to avoid charges.
+
 
 
 

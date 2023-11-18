@@ -50,10 +50,10 @@ In order to deploy and run this service, you'll need:
 - System-assigned managed identity to communicate with the Storage Account.
 
 ### 3. Power Apps
-- Power Apps Premium licensing for all users.
+- Power Apps Premium licenses for all users.
 
 ### 4. Power Automate
-- Power Automate Premium licensing for all users.
+- Power Automate Premium licenses for all users.
 
 ## Installation / deployment
 
@@ -63,6 +63,10 @@ Pricing varies dependant on region and consumption, so it is not possible to pre
 You cannot use the Free tier of Translator service as this does not support Document translation. 
 
 :boom: You should not incur costs if the solution is not used, but delete the resources and redeploy them if you like to avoid charges. You may incur charges if you do not use the solution but deploy, for example but not limited to, a higher tier than S1 for the Translator service.
+
+### Adding users
+
+The recommended method of sharing the solution with other internal users, as per the license, is to add them to a new or existing Azure Security Group. This can either be direct or dynamic membership, but must be an Azure Security Group (not an M365 Group). 
 
 
 

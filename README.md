@@ -50,10 +50,10 @@ In order to deploy and run this service, you'll need:
 - System-assigned managed identity to communicate with the Storage Account.
 
 ### 3. Power Apps
-- Power Apps Premium licenses for all users.
+- [Power Apps Premium](https://powerapps.microsoft.com/en-us/pricing/) licenses for all users.
 
 ### 4. Power Automate
-- Power Automate Premium licenses for all users.
+- [Power Automate Premium](https://powerautomate.microsoft.com/en-us/pricing/) licenses for all users.
 
 ## Installation / deployment
 

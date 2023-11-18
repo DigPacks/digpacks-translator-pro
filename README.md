@@ -20,14 +20,14 @@ In order to deploy and run this service, you'll need:
   - Your Azure account also needs Microsoft.Resources/deployments/write permissions on the subscription level.
   - If you are not sure if you have the correct permissions, ask your Global Administrator
 
-#### Services used
+## Services used
 - Power Apps
 - Power Automate
 - Microsoft Translator
 - Azure Blob Storage Account
 
-#### Service configuration
-##### Azure Blob Storage Account
+## Service configuration
+### 1. Azure Blob Storage Account
 - Standard performance tier* - StorageV2.
 - Hot access tier.
 - Redundancy default to LRS, but can choose from LRS, GRS, RA-GRS, ZRS, GZRS or RZ-GZRS.
@@ -43,11 +43,17 @@ In order to deploy and run this service, you'll need:
 
 * Premium performance tier not currently supported. Coming soon. 
 
-##### Microsoft Translator (part of Cognitive Services suite)
+### 2. Microsoft Translator (part of Cognitive Services suite)
 - Region - UK South default, but can choose from UK South or West Europe.
 - Pricing tier - Standard S1 (PAYG) by default, but can choose from S1, S2, S3, S4, C2, C3, C4 or D3.
 - Networking - public.
 - System-assigned managed identity to communicate with the Storage Account.
+
+### 3. Power Apps
+- Power Apps Premium licensing for all users.
+
+### 4. Power Automate
+- Power Automate Premium licensing for all users.
 
 #### Installation
 

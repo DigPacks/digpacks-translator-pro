@@ -9,13 +9,16 @@
 
 ## Azure account permissions
 
-IMPORTANT: In order to deploy and run this service, you'll need:
+<b>IMPORTANT:</b>
+
+In order to deploy and run this service, you'll need:
 
 - Azure account: If you're new to Azure, get an Azure account for free and you'll get some free Azure credits to get started.
 - An Azure subscription.
-- Azure account permissions: Your account must have Microsoft.Authorization/roleAssignments/write permissions, such as RBAC Administrator, User Access Administrator or Owner. If you don't have subscription-level permissions, you must be granted RBAC for an existing resource group and deploy to that existing group.
-- Your Azure account also needs Microsoft.Resources/deployments/write permissions on the subscription level.
-- If you are not sure if you have the correct permissions, ask your Global Administrator
+- Azure account permissions:
+  - Your account must have Microsoft.Authorization/roleAssignments/write permissions, such as RBAC Administrator, User Access Administrator or Owner. If you don't have subscription-level permissions, you must be granted RBAC for an existing resource group and deploy to that existing group.
+  - Your Azure account also needs Microsoft.Resources/deployments/write permissions on the subscription level.
+  - If you are not sure if you have the correct permissions, ask your Global Administrator
 
 #### Services used
 - Power Apps

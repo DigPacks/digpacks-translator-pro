@@ -47,7 +47,7 @@ In order to deploy and run this service, you'll need:
 - Infrastructure encryption is enabled.
 - Microsoft Managed Keys (MMK) only.
 
-* Premium performance tier not currently supported. Coming soon. 
+*Premium performance tier not currently supported. Coming soon. 
 
 ### 2. Microsoft Translator (part of Cognitive Services suite)
 - Region - UK South default, but can choose from UK South or West Europe.

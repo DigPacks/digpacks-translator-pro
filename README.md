@@ -50,7 +50,7 @@ In order to deploy and run this service, you'll need:
 *Premium performance tier not currently supported. Coming soon. 
 
 ### 2. Microsoft Translator (part of Cognitive Services suite)
-- Region - UK South default, but can choose from UK South or West Europe.
+- Region - UK South by default, but can choose from UK South or West Europe.
 - Pricing tier - Standard S1 (PAYG) by default, but can choose from S1, S2, S3, S4, C2, C3, C4 or D3.
 - Networking - public.
 - System-assigned managed identity to communicate with the Storage Account.

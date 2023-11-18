@@ -29,8 +29,10 @@
 - Microsoft Managed Keys (MMK) only.
 
 ##### Microsoft Translator (part of Cognitive Services suite)
-
-  
+- Region - UK South default, but can choose from UK South or West Europe.
+- Pricing tier - Standard S1 (PAYG) by default, but can choose from S1, S2, S3, S4, C2, C3, C4 or D3.
+- Networking - public.
+- System-assigned managed identity to communicate with the Storage Account.
 
 #### Installation
 

@@ -66,7 +66,9 @@ You cannot use the Free tier of Translator service as this does not support Docu
 
 ### Adding users
 
-The recommended method of sharing the solution with other internal users, as per the license, is to add them to a new or existing Azure Security Group. This can either be direct or dynamic membership, but must be an Azure Security Group (not an M365 Group). 
+The recommended method of sharing the solution with other internal users, as per the license, is to [add them to a new or existing Azure Security Group](https://learn.microsoft.com/en-us/entra/fundamentals/how-to-manage-groups). This can either be direct or dynamic membership, but must be an Azure Security Group (not an M365 Group). 
+
+When the Power Platform solution has been deployed to your Production environment, [share the Power App](https://learn.microsoft.com/en-us/power-apps/maker/canvas-apps/share-app) with the Azure Security Group. Assign the group the solution's Security Role of "DigPacks Translator Pro - User". 
 
 
 

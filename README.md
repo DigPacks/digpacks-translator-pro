@@ -100,6 +100,10 @@ When the Power Platform solution has been deployed to your Production environmen
 
 The deployment of the infrastructure for this solution is undertaken via ARM templates as IaC ('infrastructure as code'). IaC streamlines and automates the provisioning of infrastructure, ensuring consistent, repeatable setups. It enables quick scaling, version-controlled changes, and significantly reduces manual errors and operational costs. IaC fosters collaboration with code that's easily shared and maintained, offering swift recovery and environment parity. It's a cornerstone of DevOps, promoting agility and transparency across development, staging, and production environments.
 
+### Power Platform deployment
+
+After you have deployed the necessary infrastructure and noted the keys and endpoints as per the Infrastructure deployment section, you can import the .zip file containing the Power App, Power Automate flows and other elements. 
+
 
 
 

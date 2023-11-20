@@ -1,0 +1,528 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "name": {
+            "type": "String",
+            "defaultValue": "trans"
+        },
+        "translatorServiceLocation": {
+            "type": "String",
+            "defaultValue": "uksouth",
+            "allowedValues": [
+                "westeurope",
+                "uksouth"
+            ],
+            "metadata": {
+                "description": "The location where the translator resources will be deployed."
+            }
+        },
+        "resourceGroupName": {
+            "type": "String",
+            "defaultValue": ""
+        },
+        "resourceGroupId": {
+            "type": "String",
+            "defaultValue": ""
+        },
+        "sku": {
+            "type": "String",
+            "defaultValue": "S1",
+            "allowedValues": [
+                "S1"
+            ]
+        },
+        "tagValues": {
+            "type": "Object"
+        },
+        "virtualNetworkType": {
+            "type": "String",
+            "defaultValue": "Empty"
+        },
+        "vnet": {
+            "type": "Object",
+            "defaultValue": ""
+        },
+        "ipRules": {
+            "type": "Array",
+            "defaultValue": ""
+        },
+        "identity": {
+            "type": "Object",
+            "defaultValue": ""
+        },
+        "privateEndpoints": {
+            "type": "Array",
+            "defaultValue": ""
+        },
+        "privateDnsZone": {
+            "type": "String",
+            "defaultValue": ""
+        },
+        "isCommitmentPlanForDisconnectedContainerEnabled": {
+            "type": "Bool",
+            "defaultValue": ""
+        },
+        "commitmentPlanForDisconnectedContainer": {
+            "type": "Object",
+            "defaultValue": ""
+        },
+        "storageAccountLocation": {
+            "type": "String",
+            "defaultValue": "uksouth",
+            "allowedValues": [
+                "ukwest",
+                "uksouth"
+            ],
+            "metadata": {
+                "description": "The location where the storage account resources will be deployed."
+            }
+        },
+        "storageAccountName": {
+            "type": "String",
+            "defaultValue": "stranssa"
+        },
+        "redundancyOption": {
+            "type": "String",
+            "allowedValues": [
+                "LRS",
+                "GRS",
+                "RA-GRS",
+                "ZRS",
+                "GZRS",
+                "RA-GZRS"
+            ],
+            "metadata": {
+                "description": "The redundancy option for the storage account."
+            }
+        },
+        "kind": {
+            "type": "String",
+            "defaultValue": "StorageV2"
+        },
+        "minimumTlsVersion": {
+            "type": "String",
+            "defaultValue": "TLS1_2"
+        },
+        "supportsHttpsTrafficOnly": {
+            "type": "Bool",
+            "defaultValue": true
+        },
+        "allowBlobPublicAccess": {
+            "type": "Bool",
+            "defaultValue": true
+        },
+        "allowSharedKeyAccess": {
+            "type": "Bool",
+            "defaultValue": true
+        },
+        "defaultOAuth": {
+            "type": "Bool",
+            "defaultValue": false
+        },
+        "accessTier": {
+            "type": "String",
+            "defaultValue": "Hot"
+        },
+        "publicNetworkAccess": {
+            "type": "String",
+            "defaultValue": "Enabled"
+        },
+        "allowCrossTenantReplication": {
+            "type": "Bool",
+            "defaultValue": true
+        },
+        "networkAclsBypass": {
+            "type": "String",
+            "defaultValue": "AzureServices"
+        },
+        "networkAclsDefaultAction": {
+            "type": "String",
+            "defaultValue": "Allow"
+        },
+        "dnsEndpointType": {
+            "type": "String",
+            "defaultValue": "Standard"
+        },
+        "keySource": {
+            "type": "String",
+            "defaultValue": "Microsoft.Storage"
+        },
+        "infrastructureEncryptionEnabled": {
+            "type": "Bool",
+            "defaultValue": true
+        },
+        "isContainerRestoreEnabled": {
+            "type": "Bool",
+            "defaultValue": false
+        },
+        "isBlobSoftDeleteEnabled": {
+            "type": "Bool",
+            "defaultValue": true
+        },
+        "blobSoftDeleteRetentionDays": {
+            "type": "Int",
+            "defaultValue": 7
+        },
+        "isContainerSoftDeleteEnabled": {
+            "type": "Bool",
+            "defaultValue": true
+        },
+        "containerSoftDeleteRetentionDays": {
+            "type": "Int",
+            "defaultValue": 7
+        },
+        "changeFeed": {
+            "type": "Bool",
+            "defaultValue": false
+        },
+        "isVersioningEnabled": {
+            "type": "Bool",
+            "defaultValue": false
+        },
+        "isShareSoftDeleteEnabled": {
+            "type": "Bool",
+            "defaultValue": true
+        },
+        "shareSoftDeleteRetentionDays": {
+            "type": "Int",
+            "defaultValue": 7
+        }
+    },
+    "variables": {
+        "defaultVNetName": "ttCSDefaultVNet9901",
+        "defaultSubnetName": "ttCSDefaultSubnet9901",
+        "defaultAddressPrefix": "13.41.6.0/26",
+        "vnetProperties": {
+            "customSubDomainName": "[toLower(parameters('name'))]",
+            "publicNetworkAccess": "[if(equals(parameters('virtualNetworkType'), 'Internal'), 'Disabled', 'Enabled')]",
+            "networkAcls": {
+                "defaultAction": "[if(equals(parameters('virtualNetworkType'), 'External'), 'Deny', 'Allow')]",
+                "virtualNetworkRules": "[if(equals(parameters('virtualNetworkType'), 'External'), json(concat('[{\"id\": \"', concat(subscription().id, '/resourceGroups/', parameters('vnet').resourceGroup, '/providers/Microsoft.Network/virtualNetworks/', parameters('vnet').name, '/subnets/', parameters('vnet').subnets.subnet.name), '\"}]')), json('[]'))]",
+                "ipRules": "[if(or(empty(parameters('ipRules')), empty(parameters('ipRules')[0].value)), json('[]'), parameters('ipRules'))]"
+            }
+        },
+        "withoutVnetProperties": {
+            "customSubDomainName": "[toLower(parameters('name'))]"
+        },
+        "ownerRoleDefinitionId": "8e3af657-a8ff-443c-a75c-2fe8c4bcb635", // role definition id for Owner role reference https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles
+        "blobDataContributorRoleDefinitionId": "ba92f5b4-2d11-453d-a403-e96b0029c9fe",
+        "uniqueStringForStorage": "[toLower(substring(uniqueString(subscription().subscriptionId), 0, 5))]" // adds a ten-character random string to the end (lower case, numbers and letters only)  
+    },
+    "resources": [
+        {
+            "type": "Microsoft.Resources/deployments",
+            "apiVersion": "2017-05-10",
+            "name": "deployVnet",
+            "properties": {
+                "mode": "Incremental",
+                "template": {
+                    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+                    "contentVersion": "1.0.0.0",
+                    "parameters": {},
+                    "variables": {},
+                    "resources": [
+                        {
+                            "type": "Microsoft.Network/virtualNetworks",
+                            "apiVersion": "2020-04-01",
+                            "name": "[if(equals(parameters('virtualNetworkType'), 'External'), parameters('vnet').name, variables('defaultVNetName'))]",
+                            "location": "[parameters('translatorServiceLocation')]",
+                            "properties": {
+                                "addressSpace": {
+                                    "addressPrefixes": "[if(equals(parameters('virtualNetworkType'), 'External'), parameters('vnet').addressPrefixes, json(concat('[{\"', variables('defaultAddressPrefix'),'\"}]')))]"
+                                },
+                                "subnets": [
+                                    {
+                                        "name": "[if(equals(parameters('virtualNetworkType'), 'External'), parameters('vnet').subnets.subnet.name, variables('defaultSubnetName'))]",
+                                        "properties": {
+                                            "serviceEndpoints": [
+                                                {
+                                                    "service": "Microsoft.CognitiveServices",
+                                                    "locations": [
+                                                        "[parameters('translatorServiceLocation')]"
+                                                    ]
+                                                }
+                                            ],
+                                            "addressPrefix": "[if(equals(parameters('virtualNetworkType'), 'External'), parameters('vnet').subnets.subnet.addressPrefix, variables('defaultAddressPrefix'))]"
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                },
+                "parameters": {}
+            },
+            "condition": "[and(and(not(empty(parameters('vnet'))), equals(parameters('vnet').newOrExisting, 'new')), equals(parameters('virtualNetworkType'), 'External'))]"
+        },
+        {
+            "type": "Microsoft.CognitiveServices/accounts",
+            "apiVersion": "2022-03-01",
+            "name": "[concat(parameters('name'), variables('uniqueStringForStorage'))]",
+            "location": "[parameters('translatorServiceLocation')]",
+            "dependsOn": [
+                "[concat('Microsoft.Resources/deployments/', 'deployVnet')]"
+            ],
+            "tags": "[if(contains(parameters('tagValues'), 'Microsoft.CognitiveServices/accounts'), parameters('tagValues')['Microsoft.CognitiveServices/accounts'], json('{}'))]",
+            "sku": {
+                "name": "[parameters('sku')]"
+            },
+            "kind": "TextTranslation",
+            "identity": "[parameters('identity')]",
+            "properties": "[if(equals(parameters('virtualNetworkType'), 'Empty'), variables('withoutVnetProperties'), variables('vnetProperties'))]",
+            "resources": [
+                {
+                    "type": "commitmentPlans",
+                    "apiVersion": "2021-10-01",
+                    "name": "DisconnectedContainer-TextTranslation-1",
+                    "dependsOn": [
+                        "[parameters('name')]"
+                    ],
+                    "properties": "[parameters('commitmentPlanForDisconnectedContainer')]",
+                    "condition": "[parameters('isCommitmentPlanForDisconnectedContainerEnabled')]"
+                }
+            ]
+        },
+        {
+            "type": "Microsoft.Authorization/roleAssignments",
+            "apiVersion": "2022-04-01",
+            "name": "[concat(parameters('name'), 'TranslatorOwnerRoleAssignment')]",
+            "scope": "[resourceId('Microsoft.CognitiveServices/accounts', parameters('name'))]",
+            "properties": {
+                "roleDefinitionId": "[concat(subscription().id, '/providers/Microsoft.Authorization/roleDefinitions/', variables('ownerRoleDefinitionId'))]",
+                "principalId": "[deployment().properties.principalId]"
+
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.CognitiveServices/accounts', parameters('name'))]"
+            ]
+        },
+        {
+            "type": "Microsoft.Resources/deployments",
+            "apiVersion": "2017-05-10",
+            "name": "[concat('deployPrivateEndpoint-', parameters('privateEndpoints')[copyIndex()].privateEndpoint.name)]",
+            "dependsOn": [
+                "[parameters('name')]"
+            ],
+            "properties": {
+                "mode": "Incremental",
+                "template": {
+                    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+                    "contentVersion": "1.0.0.0",
+                    "resources": [
+                        {
+                            "location": "[parameters('translatorServiceLocation')]",
+                            "name": "[parameters('privateEndpoints')[copyIndex()].privateEndpoint.name]",
+                            "type": "Microsoft.Network/privateEndpoints",
+                            "apiVersion": "2020-03-01",
+                            "properties": {
+                                "subnet": {
+                                    "id": "[parameters('privateEndpoints')[copyIndex()].privateEndpoint.properties.subnet.id]"
+                                },
+                                "privateLinkServiceConnections": [
+                                    {
+                                        "name": "[parameters('privateEndpoints')[copyIndex()].privateEndpoint.name]",
+                                        "properties": {
+                                            "privateLinkServiceId": "[concat(parameters('resourceGroupId'), '/providers/Microsoft.CognitiveServices/accounts/', parameters('name'))]",
+                                            "groupIds": "[parameters('privateEndpoints')[copyIndex()].privateEndpoint.properties.privateLinkServiceConnections[0].properties.groupIds]"
+                                        }
+                                    }
+                                ]
+                            },
+                            "tags": {}
+                        }
+                    ]
+                }
+            },
+            "subscriptionId": "[parameters('privateEndpoints')[copyIndex()].subscription.subscriptionId]",
+            "resourceGroup": "[parameters('privateEndpoints')[copyIndex()].resourceGroup.value.name]",
+            "copy": {
+                "name": "privateendpointscopy",
+                "count": "[length(parameters('privateEndpoints'))]"
+            },
+            "condition": "[equals(parameters('virtualNetworkType'), 'Internal')]"
+        },
+        {
+            "type": "Microsoft.Resources/deployments",
+            "apiVersion": "2017-05-10",
+            "name": "[concat('deployDnsZoneGroup-', parameters('privateEndpoints')[copyIndex()].privateEndpoint.name)]",
+            "dependsOn": [
+                "[concat('Microsoft.Resources/deployments/', concat('deployPrivateEndpoint-', parameters('privateEndpoints')[copyIndex()].privateEndpoint.name))]"
+            ],
+            "properties": {
+                "mode": "Incremental",
+                "template": {
+                    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+                    "contentVersion": "1.0.0.0",
+                    "resources": [
+                        {
+                            "type": "Microsoft.Network/privateEndpoints/privateDnsZoneGroups",
+                            "apiVersion": "2020-03-01",
+                            "name": "[concat(parameters('privateEndpoints')[copyIndex()].privateEndpoint.name, '/', 'default')]",
+                            "location": "[parameters('translatorServiceLocation')]",
+                            "properties": {
+                                "privateDnsZoneConfigs": [
+                                    {
+                                        "name": "privatelink-cognitiveservices",
+                                        "properties": {
+                                            "privateDnsZoneId": "[concat(parameters('resourceGroupId'), '/providers/Microsoft.Network/privateDnsZones/', parameters('privateDnsZone'))]"
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            },
+            "subscriptionId": "[parameters('privateEndpoints')[copyIndex()].subscription.subscriptionId]",
+            "resourceGroup": "[parameters('privateEndpoints')[copyIndex()].resourceGroup.value.name]",
+            "copy": {
+                "name": "privateendpointdnscopy",
+                "count": "[length(parameters('privateEndpoints'))]"
+            },
+            "condition": "[equals(parameters('virtualNetworkType'), 'Internal')]"
+        },
+        {
+            "type": "Microsoft.Storage/storageAccounts",
+            "apiVersion": "2022-05-01",
+            "name": "[parameters('storageAccountName')]",
+            "location": "[parameters('storageAccountLocation')]",
+            "tags": {},
+            "sku": {
+                "name": "[concat('Standard_', parameters('redundancyOption'))]"
+            },
+            "kind": "[parameters('kind')]",
+            "identity": {
+                "type": "SystemAssigned"
+            },
+            "properties": {
+                "minimumTlsVersion": "[parameters('minimumTlsVersion')]",
+                "supportsHttpsTrafficOnly": "[parameters('supportsHttpsTrafficOnly')]",
+                "allowBlobPublicAccess": "[parameters('allowBlobPublicAccess')]",
+                "allowSharedKeyAccess": "[parameters('allowSharedKeyAccess')]",
+                "defaultToOAuthAuthentication": "[parameters('defaultOAuth')]",
+                "accessTier": "[parameters('accessTier')]",
+                "publicNetworkAccess": "[parameters('publicNetworkAccess')]",
+                "networkAcls": {
+                    "bypass": "[parameters('networkAclsBypass')]",
+                    "defaultAction": "[parameters('networkAclsDefaultAction')]",
+                    "ipRules": []
+                },
+                "encryption": {
+                    "keySource": "[parameters('keySource')]",
+                    "services": {
+                        "blob": {
+                            "keyType": "Account",
+                            "enabled": true
+                        },
+                        "file": {
+                            "keyType": "Account",
+                            "enabled": true
+                        }
+                    },
+                    "requireInfrastructureEncryption": "[parameters('infrastructureEncryptionEnabled')]"
+                }
+            }
+        },
+        {
+            "type": "Microsoft.Authorization/roleAssignments",
+            "apiVersion": "2022-04-01",
+            "name": "[concat(parameters('storageAccountName'), 'StorageOwnerRoleAssignment')]",
+            "scope": "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName'))]",
+            "properties": {
+                "roleDefinitionId": "[concat(subscription().id, '/providers/Microsoft.Authorization/roleDefinitions/', variables('ownerRoleDefinitionId'))]",
+                "principalId": "[deployment().properties.principalId]"
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName'))]"
+            ]
+        },
+        {
+            "type": "Microsoft.Authorization/roleAssignments",
+            "apiVersion": "2022-04-01",
+            "name": "[concat(parameters('storageAccountName'), 'BlobDataContributorRole')]",
+            "scope": "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName'))]",
+            "properties": {
+                "roleDefinitionId": "[concat(subscription().id, '/providers/Microsoft.Authorization/roleDefinitions/', variables('blobDataContributorRoleDefinitionId'))]",
+                "principalId": "[reference(parameters('storageAccountName'), '2019-06-01', 'Full').identity.principalId]"
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName'))]"
+            ]
+        },
+        {
+            "type": "Microsoft.Storage/storageAccounts/blobServices",
+            "apiVersion": "2022-05-01",
+            "name": "[concat(parameters('storageAccountName'), '/default')]",
+            "dependsOn": [
+                "[concat('Microsoft.Storage/storageAccounts/', parameters('storageAccountName'))]"
+            ],
+            "properties": {
+                "restorePolicy": {
+                    "enabled": "[parameters('isContainerRestoreEnabled')]"
+                },
+                "deleteRetentionPolicy": {
+                    "enabled": "[parameters('isBlobSoftDeleteEnabled')]",
+                    "days": "[parameters('blobSoftDeleteRetentionDays')]"
+                },
+                "containerDeleteRetentionPolicy": {
+                    "enabled": "[parameters('isContainerSoftDeleteEnabled')]",
+                    "days": "[parameters('containerSoftDeleteRetentionDays')]"
+                },
+                "changeFeed": {
+                    "enabled": "[parameters('changeFeed')]"
+                },
+                "isVersioningEnabled": "[parameters('isVersioningEnabled')]"
+            }
+        },
+        {
+            "type": "Microsoft.Storage/storageAccounts/blobServices/containers",
+            "apiVersion": "2022-09-01",
+            "name": "[concat(parameters('storageAccountName'), '/default/files-to-translate')]",
+            "properties": {
+                "publicAccess": "Blob"
+            },
+            "dependsOn": [
+                "[parameters('storageAccountName')]"
+            ]
+        },
+        {
+            "type": "Microsoft.Storage/storageAccounts/blobServices/containers",
+            "apiVersion": "2022-09-01",
+            "name": "[concat(parameters('storageAccountName'), '/default/translated-file')]",
+            "properties": {
+                "publicAccess": "Blob"
+            },
+            "dependsOn": [
+                "[parameters('storageAccountName')]"
+            ]
+        },
+        {
+            "type": "Microsoft.Storage/storageAccounts/blobServices/containers",
+            "apiVersion": "2022-09-01",
+            "name": "[concat(parameters('storageAccountName'), '/default/source-history')]",
+            "properties": {
+                "publicAccess": "Blob"
+            },
+            "dependsOn": [
+                "[parameters('storageAccountName')]"
+            ]
+        },
+        {
+            "type": "Microsoft.Storage/storageAccounts/fileservices",
+            "apiVersion": "2022-05-01",
+            "name": "[concat(parameters('storageAccountName'), '/default')]",
+            "dependsOn": [
+                "[concat('Microsoft.Storage/storageAccounts/', parameters('storageAccountName'))]",
+                "[concat(concat('Microsoft.Storage/storageAccounts/', parameters('storageAccountName')), '/blobServices/default')]"
+            ],
+            "properties": {
+                "protocolSettings": null,
+                "shareDeleteRetentionPolicy": {
+                    "enabled": "[parameters('isShareSoftDeleteEnabled')]",
+                    "days": "[parameters('shareSoftDeleteRetentionDays')]"
+                }
+            }
+        }
+    ]
+}

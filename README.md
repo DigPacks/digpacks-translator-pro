@@ -82,7 +82,7 @@ Pricing varies dependant on region and consumption, so it is not possible to pre
 
 Note: You cannot use the Free tier of the Azure AI Translator service as this does not support document translation. 
 
-:boom: You should not incur costs if the solution is not used, but delete the resources and redeploy them if you like to avoid charges. You may incur charges if you do not use the solution but deploy, for example but not limited to, a higher tier than S1 for the Translator service.
+:boom: You should not incur costs if the solution is not used, but delete the resources and redeploy them if you like to avoid charges. You may incur charges if you do not use the solution but deploy, for example but not limited to, a higher tier than S1 for the Translator service. :boom:
 
 ### Enabling authentication
 By default, the only people who can use the solution are those whom you share the Power App with; however, the Azure AI Translator service and Storage Account will have no authentication or access restrictions enabled, meaning anyone who may have access to the endpoint(s) and key(s) in Azure can utilise the services over API. You can secure the services further if you wish by deploying a Virtual Network, using RBAC or another authentication method.

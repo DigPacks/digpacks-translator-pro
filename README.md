@@ -33,6 +33,7 @@ In order to deploy and run this service, you'll need:
 - [Power Apps](https://www.microsoft.com/en-us/power-platform/products/power-apps)
 - [Power Automate](https://powerautomate.microsoft.com/en-gb/)
 - [Azure AI Translator](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/translator/)
+- [Azure AI Speech](https://azure.microsoft.com/en-us/products/ai-services/ai-speech)
 - [Azure Blob Storage Account](https://azure.microsoft.com/en-gb/products/storage/blobs/)
 
 ## Service configuration
@@ -58,12 +59,19 @@ In order to deploy and run this service, you'll need:
 - Networking - public.
 - System-assigned managed identity to communicate with the Storage Account.
 
+### 3. Azure AI Speech (part of Azure AI* suite)
+
+- Region - UK South by default, but can choose from UK South or West Europe.
+- Pricing tier - S0 Standard.
+- Networking - public
+- System-assigned managed identity to communicate with the Storage Account.
+
 *Previously known an Azure Cognitive Services.
 
-### 3. Power Apps
+### 4. Power Apps
 - [Power Apps Premium](https://powerapps.microsoft.com/en-us/pricing/) licenses for all users.
 
-### 4. Power Automate
+### 5. Power Automate
 - [Power Automate Premium](https://powerautomate.microsoft.com/en-us/pricing/) licenses for all users.
 
 ## Installation / deployment

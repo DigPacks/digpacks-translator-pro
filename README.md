@@ -1,5 +1,8 @@
 # DigPacks Document Translator Pro
 
+![MainScreen](https://github.com/DigPacksPhilMVP/digpacks-translator-pro/assets/147208426/dda1013f-9e69-44f1-8614-22165d960eb3)
+
+
 ## Introduction
 1)  A <b>Power Platform application</b> utilising the Azure AI Translator service, allowing users to upload single or multiple documents and translate them from and to 69 supported languages. 
 2) Files are <b>uploaded via application from the user’s local machine or any other file source</b> which in turn deploys them as blobs into Azure Blob Storage account, passes them through the Translator service, and returns the translated document into Blob, ready for the user to view. 

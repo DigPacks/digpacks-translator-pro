@@ -107,37 +107,54 @@ The deployment of the infrastructure for this solution is undertaken via ARM tem
 After you have deployed the necessary infrastructure and noted the keys and endpoints as per the Infrastructure deployment section, you can import the .zip file containing the Power App, Power Automate flows and other elements. 
 
 1. Go to the Power Platform environment where you want to deploy Translator Pro.
-![Deploy1](https://github.com/DigPacksPhilMVP/digpacks-translator-pro/assets/147208426/3bca405f-7382-44ad-b5d6-29d1766a02b2)
 
 2. Select import a solution
+![Deploy1](https://github.com/DigPacksPhilMVP/digpacks-translator-pro/assets/147208426/abd97b97-fba7-4952-8712-e5ee323e8f01)
 
-3. Select the .zip solution
+3. Click browse and Select the .zip solution
+![Deploy2](https://github.com/DigPacksPhilMVP/digpacks-translator-pro/assets/147208426/f4c4846f-3525-40ff-bbbd-6a296f6b148c)
+![Deploy3](https://github.com/DigPacksPhilMVP/digpacks-translator-pro/assets/147208426/4dd37ffb-7879-48ce-8c1f-bee52256ca5a)
 
 4. Click 'Next'
+![Deploy4](https://github.com/DigPacksPhilMVP/digpacks-translator-pro/assets/147208426/c3b2e2ef-7b41-4e20-8ce2-056edf34e451)
 
 5. Click 'Next'
+![Deploy5](https://github.com/DigPacksPhilMVP/digpacks-translator-pro/assets/147208426/dfdc0c8b-9d1b-4d22-87c9-69c566be4f0e)
 
 6. Here you need to set the connections for each service which the App uses.
+![Deploy6](https://github.com/DigPacksPhilMVP/digpacks-translator-pro/assets/147208426/b638a776-17ee-47e6-bc72-5dca560f5655)
 
 7. For Microsoft Translator, paste in the 'Translator resource name' and 'Resource Key'.
+![Deploy7](https://github.com/DigPacksPhilMVP/digpacks-translator-pro/assets/147208426/c4377f8e-3ee4-40a0-8776-c0d596f2a130)
 
-8. Click 'Apply changes'.
+8. Click 'Create'.
+![Deploy8](https://github.com/DigPacksPhilMVP/digpacks-translator-pro/assets/147208426/e5800a01-2fba-4950-8e78-91505d0cb9a8)
 
-9. For Azure Blob Storage, choose type of 'Access Key', paste the 'Azure Storage account name or blob endpoint' and 'Azure Storage Account Access Key'.
+9. In "Apply changes", click Refresh.
+![Deploy9](https://github.com/DigPacksPhilMVP/digpacks-translator-pro/assets/147208426/5d1dc584-457c-47a1-92d3-a549a21c8cae)
 
-10. For Azure Batch Speech-to-text, choose 'Api Key', paste the 'Account Key' and enter the Region. For UK South, this should be entered as "uksouth".
+10. For Azure Blob Storage, choose type of 'Access Key', paste the 'Azure Storage account name or blob endpoint' and 'Azure Storage Account Access Key'.
+![Deploy10](https://github.com/DigPacksPhilMVP/digpacks-translator-pro/assets/147208426/9a0f86f2-701d-4010-b7c1-8a2bf184dbce)
+![Deploy11](https://github.com/DigPacksPhilMVP/digpacks-translator-pro/assets/147208426/dc2cd103-0569-4e1e-9d15-7faa5ee48a5a)
 
-11. When you have set all the connections, you should now click 'Import'.
+11. For Azure Batch Speech-to-text, choose 'Api Key', paste the 'Account Key' and enter the Region. For UK South, this should be entered as "uksouth".
+![Deploy12](https://github.com/DigPacksPhilMVP/digpacks-translator-pro/assets/147208426/9eb535bd-a6fc-407d-91ee-75800fdabe3b)
 
-12. You will now see the banner of "Currently importing solution "Digpacks Translator"".
+12. When you have set all the connections, you should now click 'Import'.
+![Deploy6](https://github.com/DigPacksPhilMVP/digpacks-translator-pro/assets/147208426/dfdb863d-fd71-47b7-8542-0618e76601a4)
 
-13. After a moment, the import will complete and the banner will show "Solution "Digpacks Translator imported successfully".
+13. You will now see the banner of "Currently importing solution "Digpacks Translator"".
+![Deploy13](https://github.com/DigPacksPhilMVP/digpacks-translator-pro/assets/147208426/ec5fc3f6-fec6-4edb-8693-68323d61371c)
 
-14. Navigate to Apps > click on the app and click Play
+14. After a moment, the import will complete and the banner will show "Solution "Digpacks Translator imported successfully".
+![Deploy14](https://github.com/DigPacksPhilMVP/digpacks-translator-pro/assets/147208426/4f3d9ed4-2236-4409-9f33-717e4caa0aad)
 
-15. On first launch, you will be asked to confirm your authorisation to the connected services. Click 'Allow'.
+15. Navigate to Apps > click on the app and click Play
 
-16. The app is now deployed. Enjoy!
+16. On first launch, you will be asked to confirm your authorisation to the connected services. Click 'Allow'.
+![Deploy15](https://github.com/DigPacksPhilMVP/digpacks-translator-pro/assets/147208426/6435d8ee-bc72-4042-af44-b0cd4a7d1f2f)
+
+17. The app is now deployed. Enjoy!
 
 
 

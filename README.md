@@ -106,6 +106,40 @@ The deployment of the infrastructure for this solution is undertaken via ARM tem
 
 After you have deployed the necessary infrastructure and noted the keys and endpoints as per the Infrastructure deployment section, you can import the .zip file containing the Power App, Power Automate flows and other elements. 
 
+1. Go to the Power Platform environment where you want to deploy Translator Pro.
+![Deploy1](https://github.com/DigPacksPhilMVP/digpacks-translator-pro/assets/147208426/3bca405f-7382-44ad-b5d6-29d1766a02b2)
+
+2. Select import a solution
+
+3. Select the .zip solution
+
+4. Click 'Next'
+
+5. Click 'Next'
+
+6. Here you need to set the connections for each service which the App uses.
+
+7. For Microsoft Translator, paste in the 'Translator resource name' and 'Resource Key'.
+
+8. Click 'Apply changes'.
+
+9. For Azure Blob Storage, choose type of 'Access Key', paste the 'Azure Storage account name or blob endpoint' and 'Azure Storage Account Access Key'.
+
+10. For Azure Batch Speech-to-text, choose 'Api Key', paste the 'Account Key' and enter the Region. For UK South, this should be entered as "uksouth".
+
+11. When you have set all the connections, you should now click 'Import'.
+
+12. You will now see the banner of "Currently importing solution "Digpacks Translator"".
+
+13. After a moment, the import will complete and the banner will show "Solution "Digpacks Translator imported successfully".
+
+14. Navigate to Apps > click on the app and click Play
+
+15. On first launch, you will be asked to confirm your authorisation to the connected services. Click 'Allow'.
+
+16. The app is now deployed. Enjoy!
+
+
 
 
 

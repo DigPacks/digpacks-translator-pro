@@ -37,6 +37,8 @@ In order to deploy and run this service, you'll need:
 - [Azure AI Speech](https://azure.microsoft.com/en-us/products/ai-services/ai-speech)
 - [Azure Blob Storage Account](https://azure.microsoft.com/en-gb/products/storage/blobs/)
 
+![infraMap](https://github.com/DigPacksPhilMVP/digpacks-translator-pro/assets/147208426/d4895bdc-9040-4930-a948-167374658d88)
+
 ## Service configuration
 ### 1. Azure Blob Storage Account
 - Standard performance tier* - StorageV2.

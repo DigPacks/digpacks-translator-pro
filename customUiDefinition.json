@@ -1,0 +1,296 @@
+{
+    "handler": "Microsoft.Azure.CreateUIDef",
+    "version": "0.1.2-preview",
+    "parameters": {
+        "basics": [],
+        "steps": [
+            {
+                "name": "storageSettings",
+                "label": "Storage Account Settings",
+                "bladeTitle": "Storage Account",
+                "elements": [
+                    {
+                        "name": "storageAccountLocation",
+                        "type": "Microsoft.Common.DropDown",
+                        "label": "Region",
+                        "defaultValue": "UK South",
+                        "toolTip": "Select the region for your storage account.",
+                        "constraints": {
+                            "allowedValues": [
+                                {
+                                    "label": "UK South",
+                                    "value": "uksouth"
+                                },
+                                {
+                                    "label": "UK West",
+                                    "value": "ukwest"
+                                }
+                            ],
+                            "required": true
+                        }
+                    },
+                    {
+                        "name": "isContainerRestoreEnabled",
+                        "type": "Microsoft.Common.CheckBox",
+                        "label": "Enable Container Restore",
+                        "defaultValue": false,
+                        "toolTip": "Enable or disable container restore for the storage account."
+                    },
+                    {
+                        "name": "containerSoftDeleteRetentionDays",
+                        "type": "Microsoft.Common.TextBox",
+                        "label": "Retention Days",
+                        "defaultValue": "7",
+                        "toolTip": "Specify the retention days (minimum 7 days).",
+                        "constraints": {
+                            "required": true,
+                            "range": {
+                                "min": 7
+                            },
+                            "regex": "^[0-9]+$",
+                            "validationMessage": "Please enter a valid number of days (7 or more)."
+                        }
+                    },
+                    {
+                        "name": "redundancyOption",
+                        "type": "Microsoft.Common.DropDown",
+                        "label": "Redundancy",
+                        "defaultValue": "Standard_LRS",
+                        "toolTip": "Select the redundancy option for your storage account.",
+                        "constraints": {
+                            "allowedValues": [
+                                {
+                                    "label": "LRS",
+                                    "value": "Standard_LRS"
+                                },
+                                {
+                                    "label": "GRS",
+                                    "value": "Standard_GRS"
+                                },
+                                {
+                                    "label": "RA-GRS",
+                                    "value": "Standard_RAGRS"
+                                },
+                                {
+                                    "label": "ZRS",
+                                    "value": "Standard_ZRS"
+                                },
+                                {
+                                    "label": "GZRS",
+                                    "value": "Standard_GZRS"
+                                },
+                                {
+                                    "label": "RA-GZRS",
+                                    "value": "Standard_RAGZRS"
+                                }
+                            ],
+                            "required": true
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "translatorServiceSettings",
+                "label": "Azure AI Translator Service Settings",
+                "bladeTitle": "Translator Service",
+                "elements": [
+                    {
+                        "name": "translatorVirtualNetworkType",
+                        "type": "Microsoft.Common.DropDown",
+                        "label": "Virtual Network Type",
+                        "defaultValue": "Empty",
+                        "toolTip": "Select the Virtual Network Type for your Translator Service.",
+                        "constraints": {
+                            "allowedValues": [
+                                {
+                                    "label": "No Virtual Network",
+                                    "value": "Empty"
+                                },
+                                {
+                                    "label": "External Virtual Network",
+                                    "value": "External"
+                                },
+                                {
+                                    "label": "Internal Virtual Network",
+                                    "value": "Internal"
+                                }
+                            ],
+                            "required": true
+                        }
+                    },
+                    {
+                        "name": "translatorServiceLocation",
+                        "type": "Microsoft.Common.DropDown",
+                        "label": "Region",
+                        "defaultValue": "UK South",
+                        "toolTip": "Select the region for your Translator Service.",
+                        "constraints": {
+                            "allowedValues": [
+                                {
+                                    "label": "UK South",
+                                    "value": "uksouth"
+                                },
+                                {
+                                    "label": "West Europe",
+                                    "value": "westeurope"
+                                }
+                            ],
+                            "required": true
+                        }
+                    },
+                    {
+                        "name": "translatorSku",
+                        "type": "Microsoft.Common.DropDown",
+                        "label": "Translator SKU",
+                        "defaultValue": "S1",
+                        "toolTip": "Select the SKU option for your Translator Service.",
+                        "constraints": {
+                            "allowedValues": [
+                                {
+                                    "label": "S1",
+                                    "value": "S1"
+                                },
+                                {
+                                    "label": "S2",
+                                    "value": "S2"
+                                },
+                                {
+                                    "label": "S3",
+                                    "value": "S3"
+                                },
+                                {
+                                    "label": "S4",
+                                    "value": "S4"
+                                },
+                                {
+                                    "label": "C2",
+                                    "value": "C2"
+                                },
+                                {
+                                    "label": "C3",
+                                    "value": "C3"
+                                },
+                                {
+                                    "label": "C4",
+                                    "value": "C4"
+                                },
+                                {
+                                    "label": "D3",
+                                    "value": "D3"
+                                }
+                            ],
+                            "required": true
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "speechServiceSettings",
+                "label": "Azure AI Speech Service Settings",
+                "bladeTitle": "Speech Service",
+                "elements": [
+                    {
+                        "name": "speechVirtualNetworkType",
+                        "type": "Microsoft.Common.DropDown",
+                        "label": "Virtual Network Type",
+                        "defaultValue": "Empty",
+                        "toolTip": "Select the Virtual Network Type for your Speech Service.",
+                        "constraints": {
+                            "allowedValues": [
+                                {
+                                    "label": "No Virtual Network",
+                                    "value": "Empty"
+                                },
+                                {
+                                    "label": "External Virtual Network",
+                                    "value": "External"
+                                },
+                                {
+                                    "label": "Internal Virtual Network",
+                                    "value": "Internal"
+                                }
+                            ],
+                            "required": true
+                        }
+                    },
+                    {
+                        "name": "speechLocation",
+                        "type": "Microsoft.Common.DropDown",
+                        "label": "Region",
+                        "defaultValue": "UK South",
+                        "toolTip": "Select the region for your Speech Service.",
+                        "constraints": {
+                            "allowedValues": [
+                                {
+                                    "label": "UK South",
+                                    "value": "uksouth"
+                                },
+                                {
+                                    "label": "West Europe",
+                                    "value": "westeurope"
+                                }
+                            ],
+                            "required": true
+                        }
+                    },
+                    {
+                        "name": "speechSku",
+                        "type": "Microsoft.Common.DropDown",
+                        "label": "Speech SKU",
+                        "defaultValue": "S1",
+                        "toolTip": "Select the SKU option for your Speech Service.",
+                        "constraints": {
+                            "allowedValues": [
+                                {
+                                    "label": "S1",
+                                    "value": "S1"
+                                },
+                                {
+                                    "label": "S2",
+                                    "value": "S2"
+                                },
+                                {
+                                    "label": "S3",
+                                    "value": "S3"
+                                },
+                                {
+                                    "label": "S4",
+                                    "value": "S4"
+                                },
+                                {
+                                    "label": "C2",
+                                    "value": "C2"
+                                },
+                                {
+                                    "label": "C3",
+                                    "value": "C3"
+                                },
+                                {
+                                    "label": "C4",
+                                    "value": "C4"
+                                },
+                                {
+                                    "label": "D3",
+                                    "value": "D3"
+                                }
+                            ],
+                            "required": true
+                        }
+                    }
+                ]
+            }
+        ],
+        "outputs": {
+            "storageAccountLocation": "[steps('storageSettings').storageAccountLocation]",
+            "isContainerRestoreEnabled": "[steps('storageSettings').isContainerRestoreEnabled]",
+            "containerSoftDeleteRetentionDays": "[steps('storageSettings').containerSoftDeleteRetentionDays]",
+            "redundancyOption": "[steps('storageSettings').redundancyOption]",
+            "translatorVirtualNetworkType": "[steps('translatorServiceSettings').translatorVirtualNetworkType]",
+            "translatorServiceLocation": "[steps('translatorServiceSettings').translatorServiceLocation]",
+            "translatorSku": "[steps('translatorServiceSettings').translatorSku]",
+            "speechVirtualNetworkType": "[steps('speechServiceSettings').speechVirtualNetworkType]",
+            "speechLocation": "[steps('speechServiceSettings').speechLocation]",
+            "speechSku": "[steps('speechServiceSettings').speechSku]"
+        }
+    }
+}

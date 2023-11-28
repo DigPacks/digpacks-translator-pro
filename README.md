@@ -98,13 +98,13 @@ The recommended method of sharing the solution with other internal users, as per
 
 When the Power Platform solution has been deployed to your Production environment, [share the Power App](https://learn.microsoft.com/en-us/power-apps/maker/canvas-apps/share-app) with the Azure Security Group. Assign the group the solution's Security Role of "DigPacks Translator Pro - User". 
 
-### Azure infrastructure deployment
+## Azure infrastructure deployment
 
 The deployment of the infrastructure for this solution is undertaken via ARM templates as IaC ('infrastructure as code'). IaC streamlines and automates the provisioning of infrastructure, ensuring consistent, repeatable setups. It enables quick scaling, version-controlled changes, and significantly reduces manual errors and operational costs. IaC fosters collaboration with code that's easily shared and maintained, offering swift recovery and environment parity. It's a cornerstone of DevOps, promoting agility and transparency across development, staging, and production environments.
 
 There are many ways by which you can deploy the infrastructure for this solution, but the supported method is to use the ARM (Azure Resource Manager) templates provided in this repo. You can customise them as you see fit, but they provide the baseline for what is needed for the application to operate.
 
-## Azure template installation (manual)
+### Azure template installation (manual)
 
 1. Download template.json from this repo.
 2. In Azure Portal, search for and select 'Template specs'. Alternatively, you can search for 'Deploy a custom template'.
@@ -113,11 +113,30 @@ There are many ways by which you can deploy the infrastructure for this solution
 5. When the services have deployed, you will need to make a note of the services' endpoints and access keys.
 6. Navigate to the resource group you just deployed and, for each service (Azure AI Translator, Azure AI Speech service and the Storage Account), note the endpoint URL and one of the access keys.
 
-## Manually deploy each Azure service
+### Manually deploy each Azure service
 
 This can be done via IaC, but to keep things simple, we'll use the Azure Portal to get you up and running. 
 
+#### Create a new resource group
+
 1. In a Subscription, create a new resource group for where the resources will live.
+2. In the newly created resource group, click "+ Create" from the taskbar.
+
+#### Deploy the Blob storage account
+
+3. Search for "storage account" and select the one published by Microsoft. Click "Create" > "Storage account".
+4. Give the storage account a name, choose the region, performance and redundancy options to suit you.
+5. In the Advanced tab, ensure that "Allow enabling anonymous access on individual containers" is checked.
+6. Click through to "Review" and click "Create". Your storage account is now deployed.
+7. Go to the Storage Account resource. Click the "Containers" blade on the left-hand menu.
+8. Create 5 containers, called "audio-to-translate", "files-to-translate", "source-history", "transcribed-audio", "translated-files". For each container, ensure that the access level is set to "Anonymous access level" > "Container".
+9. Click on one of the Containers created and select the "Properties" blade from the left-hand side. Copy the URL displayed up to the "/" before the container name. Paste it into Notepad temporarily.
+10. Step back into the Storage Account main page and click the "Access keys" blade on the left-hand side. Copy one of the keys and paste it into Notepad temporarily. Also make a note of the 'Storage account name'.
+11. Your storage account is ready.
+
+#### Deploy the Azure AI Translator service
+
+1. From the resource group you created earlier, search for "translator" and select the Translator service. Click "Create" > "Translator".
 2. 
 
 ### Power Platform deployment

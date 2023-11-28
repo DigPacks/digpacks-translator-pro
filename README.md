@@ -152,6 +152,24 @@ This can be done via IaC, but to keep things simple, we'll use the Azure Portal 
 14. Select the "Keys and Endpoint" blade on the left-hand panel, copy and note one of the keys. Make a note of both the Text Translation and Document Translation endpoints under Web API.
 15. Your translator service is ready.
 
+#### Deploy the Azure AI Speech service
+
+1. From the resource group you created earlier, search for "speech" and select the Speech service. Click "Create" > "Speech".
+2. Choose the Region for your Speech service. **This must match the Region chosen for your Storage Account and MUST NOT be the Global region**
+3. Give your Speech service a name.
+4. Select the "Standard S0" pricing tier.
+5. In the Identity tab, make sure "System assigned managed identity" is set to "On".
+6. Move forwards to Review + Create to start the deployment.
+7. Once the Speech service is deployed, go to it and select the "Identity" blade from the left-hand panel. System assigned > Status should be "On".
+8. Under Permissions, click "Azure role assignments".
+9. Select "+ Add role assignment".
+10. In the pop up window, select Scope > Storage.
+11. Ensure the correct subscription is selected.
+12. Under Resource, choose the Storage Account you deployed earlier.
+13. Under Role, select "Storage Blob Data Contributor" and click Save.
+14. Select the "Keys and Endpoint" blade on the left-hand panel, copy and note one of the keys. Make a note of both Endpoint given.
+15. Your speech service is ready.
+
 ### Power Platform deployment
 
 After you have deployed the necessary infrastructure and noted the keys and endpoints as per the Infrastructure deployment section, you can import the .zip file containing the Power App, Power Automate flows and other elements. 

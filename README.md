@@ -137,7 +137,20 @@ This can be done via IaC, but to keep things simple, we'll use the Azure Portal 
 #### Deploy the Azure AI Translator service
 
 1. From the resource group you created earlier, search for "translator" and select the Translator service. Click "Create" > "Translator".
-2. 
+2. Choose the Region for your Translator service. **This must match the Region chosen for your Storage Account and MUST NOT be the Global region**
+3. Give your Translator service a name.
+4. Select the pricing tier. Do not select the Free tier, as this does not support document translation.
+5. In the Identity tab, make sure "System assigned managed identity" is set to "On".
+6. Move forwards to Review + Create to start the deployment.
+7. Once the Translator service is deployed, go to it and select the "Identity" blade from the left-hand panel. System assigned > Status should be "On".
+8. Under Permissions, click "Azure role assignments".
+9. Select "+ Add role assignment".
+10. In the pop up window, select Scope > Storage.
+11. Ensure the correct subscription is selected.
+12. Under Resource, choose the Storage Account you deployed earlier.
+13. Under Role, select "Storage Blob Data Contributor" and click Save.
+14. Select the "Keys and Endpoint" blade on the left-hand panel, copy and note one of the keys. Make a note of both the Text Translation and Document Translation endpoints under Web API.
+15. Your translator service is ready.
 
 ### Power Platform deployment
 

@@ -8,7 +8,7 @@
 2) Files are <b>uploaded via application from the user’s local machine or any other file source</b> which in turn deploys them as blobs into Azure Blob Storage account, passes them through the Translator service, and returns the translated document into Blob, ready for the user to view. 
 3) This solution <b>preserves the presentation of the source file</b> (so, doesn’t just extract text and translate that like AI Builder services; rather, translates the text and retains the overall structure of the source document, and outputs in the same file format as the source document).
 4) The <b>source document’s language is automatically detected</b>; meaning that users don’t need to know what language the source document is in before translating it to, most likely, English. 
-5) Translate <b>large files in large batches</b> – individual document size up to 40MB, up to 1000 documents in one translation batch (max 250MB per batch).
+5) Translate <b>large files in large batches</b> – individual document size up to 50MB, up to 30 documents in one translation batch (max 1500MB per batch).
 6) <b>Transcribe and translate speech</b> all within the app. Apply punctuation and breaks where you like, and the translator does the rest.
 7) A <b>custom Security Role so that only people/groups you choose can use the application</b>.
 

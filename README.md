@@ -10,6 +10,7 @@
 4) The <b>source document’s language is automatically detected</b>; meaning that users don’t need to know what language the source document is in before translating it to, most likely, English. 
 5) Translate <b>large files in large batches</b> – individual document size up to 40MB, up to 1000 documents in one translation batch (max 250MB per batch).
 6) <b>Transcribe and translate speech</b> all within the app. Apply punctuation and breaks where you like, and the translator does the rest.
+7) A <b>custom Security Role so that only people/groups you choose can use the application</b>.
 
 ## Account permissions
 

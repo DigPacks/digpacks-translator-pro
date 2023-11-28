@@ -1,6 +1,6 @@
 # DigPacks Document Translator Pro
 
-![MainScreen](https://github.com/DigPacksPhilMVP/digpacks-translator-pro/assets/147208426/dda1013f-9e69-44f1-8614-22165d960eb3)
+![MainScreen](https://github.com/DigPacksPhilMVP/digpacks-translator-pro/assets/147208426/dda1013f-9e69-44f1-8614-22165d960eb3) 
 
 
 ## Introduction
@@ -180,47 +180,48 @@ After you have deployed the necessary infrastructure and noted the keys and endp
 1. Go to the Power Platform environment where you want to deploy Translator Pro.
 
 2. Select import a solution
-![Deploy1](https://github.com/DigPacksPhilMVP/digpacks-translator-pro/assets/147208426/abd97b97-fba7-4952-8712-e5ee323e8f01)
+<img src="https://github.com/DigPacksPhilMVP/digpacks-translator-pro/assets/147208426/abd97b97-fba7-4952-8712-e5ee323e8f01" width="750" height="400">
 
 3. Click browse and Select the .zip solution
-![Deploy2](https://github.com/DigPacksPhilMVP/digpacks-translator-pro/assets/147208426/f4c4846f-3525-40ff-bbbd-6a296f6b148c)
-![Deploy3](https://github.com/DigPacksPhilMVP/digpacks-translator-pro/assets/147208426/4dd37ffb-7879-48ce-8c1f-bee52256ca5a)
-
-4. Click 'Next'
-![Deploy4](https://github.com/DigPacksPhilMVP/digpacks-translator-pro/assets/147208426/c3b2e2ef-7b41-4e20-8ce2-056edf34e451)
+<img src="https://github.com/DigPacksPhilMVP/digpacks-translator-pro/assets/147208426/f4c4846f-3525-40ff-bbbd-6a296f6b148c" width="400" height="450">
+<img src="https://github.com/DigPacksPhilMVP/digpacks-translator-pro/assets/147208426/4dd37ffb-7879-48ce-8c1f-bee52256ca5a">
 
 5. Click 'Next'
-![Deploy5](https://github.com/DigPacksPhilMVP/digpacks-translator-pro/assets/147208426/dfdc0c8b-9d1b-4d22-87c9-69c566be4f0e)
+<img src="https://github.com/DigPacksPhilMVP/digpacks-translator-pro/assets/147208426/c3b2e2ef-7b41-4e20-8ce2-056edf34e451" width="400" height="450">
 
-6. Here you need to set the connections for each service which the App uses.
-![Deploy6](https://github.com/DigPacksPhilMVP/digpacks-translator-pro/assets/147208426/b638a776-17ee-47e6-bc72-5dca560f5655)
+6. Click 'Next'
+<img src="https://github.com/DigPacksPhilMVP/digpacks-translator-pro/assets/147208426/dfdc0c8b-9d1b-4d22-87c9-69c566be4f0e" width="400" height="450">
 
-7. For Microsoft Translator, paste in the 'Translator resource name' and 'Resource Key'.
-![Deploy7](https://github.com/DigPacksPhilMVP/digpacks-translator-pro/assets/147208426/c4377f8e-3ee4-40a0-8776-c0d596f2a130)
+7. Here you need to set the connections for each service which the App uses.
+<img src="https://github.com/DigPacksPhilMVP/digpacks-translator-pro/assets/147208426/b638a776-17ee-47e6-bc72-5dca560f5655" width="400" height="450">
 
-8. Click 'Create'.
-![Deploy8](https://github.com/DigPacksPhilMVP/digpacks-translator-pro/assets/147208426/e5800a01-2fba-4950-8e78-91505d0cb9a8)
+8. For Microsoft Translator, paste in the 'Translator resource name' and 'Resource Key'.
+<img src="https://github.com/DigPacksPhilMVP/digpacks-translator-pro/assets/147208426/c4377f8e-3ee4-40a0-8776-c0d596f2a130" width="600" height="400">
 
-9. In "Apply changes", click Refresh.
+9. Click 'Create'.
+<img src="https://github.com/DigPacksPhilMVP/digpacks-translator-pro/assets/147208426/e5800a01-2fba-4950-8e78-91505d0cb9a8" width="600" height="400">
+
+10. In "Apply changes", click Refresh.
+    
 ![Deploy9](https://github.com/DigPacksPhilMVP/digpacks-translator-pro/assets/147208426/5d1dc584-457c-47a1-92d3-a549a21c8cae)
 
-10. For Azure Blob Storage, choose type of 'Access Key', paste the 'Azure Storage account name or blob endpoint' and 'Azure Storage Account Access Key'.
-![Deploy10](https://github.com/DigPacksPhilMVP/digpacks-translator-pro/assets/147208426/9a0f86f2-701d-4010-b7c1-8a2bf184dbce)
-![Deploy11](https://github.com/DigPacksPhilMVP/digpacks-translator-pro/assets/147208426/dc2cd103-0569-4e1e-9d15-7faa5ee48a5a)
+12. For Azure Blob Storage, choose type of 'Access Key', paste the 'Azure Storage account name or blob endpoint' and 'Azure Storage Account Access Key'.
+<img src="https://github.com/DigPacksPhilMVP/digpacks-translator-pro/assets/147208426/9a0f86f2-701d-4010-b7c1-8a2bf184dbce" width="600" height="500">
+<img src="https://github.com/DigPacksPhilMVP/digpacks-translator-pro/assets/147208426/dc2cd103-0569-4e1e-9d15-7faa5ee48a5a" width="600" height="500">
 
-11. For Azure Batch Speech-to-text, choose 'Api Key', paste the 'Account Key' and enter the Region. For UK South, this should be entered as "uksouth".
-![Deploy12](https://github.com/DigPacksPhilMVP/digpacks-translator-pro/assets/147208426/9eb535bd-a6fc-407d-91ee-75800fdabe3b)
+13. For Azure Batch Speech-to-text, choose 'Api Key', paste the 'Account Key' and enter the Region. For UK South, this should be entered as "uksouth".
+<img src="https://github.com/DigPacksPhilMVP/digpacks-translator-pro/assets/147208426/9eb535bd-a6fc-407d-91ee-75800fdabe3b" width="600" height="500">
 
-12. When you have set all the connections, you should now click 'Import'.
-![Deploy6](https://github.com/DigPacksPhilMVP/digpacks-translator-pro/assets/147208426/dfdb863d-fd71-47b7-8542-0618e76601a4)
+14. When you have set all the connections, you should now click 'Import'.
+<img src="https://github.com/DigPacksPhilMVP/digpacks-translator-pro/assets/147208426/dfdb863d-fd71-47b7-8542-0618e76601a4" width="600" height="650">
 
-13. You will now see the banner of "Currently importing solution "Digpacks Translator"".
+15. You will now see the banner of "Currently importing solution "Digpacks Translator"".
 ![Deploy13](https://github.com/DigPacksPhilMVP/digpacks-translator-pro/assets/147208426/ec5fc3f6-fec6-4edb-8693-68323d61371c)
 
-14. After a moment, the import will complete and the banner will show "Solution "Digpacks Translator imported successfully".
+16. After a moment, the import will complete and the banner will show "Solution "Digpacks Translator imported successfully".
 ![Deploy14](https://github.com/DigPacksPhilMVP/digpacks-translator-pro/assets/147208426/4f3d9ed4-2236-4409-9f33-717e4caa0aad)
 
-15. In your solution, select the Environment Variable. Change it to the endpoint for your Blob Storage account - it will look like the below - and click Save:
+17. In your solution, select the Environment Variable. Change it to the endpoint for your Blob Storage account - it will look like the below - and click Save:
 
 ``` https://<account name>.blob.core.windows.net ```
 

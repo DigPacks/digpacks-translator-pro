@@ -127,15 +127,15 @@ This can be done via IaC, but to keep things simple, we'll use the Azure Portal 
 
 #### Deploy the Blob storage account
 
-3. Search for "storage account" and select the one published by Microsoft. Click "Create" > "Storage account".
-4. Give the storage account a name, choose the region, performance and redundancy options to suit you.
-5. In the Advanced tab, ensure that "Allow enabling anonymous access on individual containers" is checked.
-6. Click through to "Review" and click "Create". Your storage account is now deployed.
-7. Go to the Storage Account resource. Click the "Containers" blade on the left-hand menu.
-8. Create 5 containers, called "audio-to-translate", "files-to-translate", "source-history", "transcribed-audio", "translated-files". For each container, ensure that the access level is set to "Anonymous access level" > "Container".
-9. Click on one of the Containers created and select the "Properties" blade from the left-hand side. Copy the URL displayed up to the "/" before the container name. Paste it into Notepad temporarily.
-10. Step back into the Storage Account main page and click the "Access keys" blade on the left-hand side. Copy one of the keys and paste it into Notepad temporarily. Also make a note of the 'Storage account name'.
-11. Your storage account is ready.
+1. Search for "storage account" and select the one published by Microsoft. Click "Create" > "Storage account".
+2. Give the storage account a name, choose the region, performance and redundancy options to suit you.
+3. In the Advanced tab, ensure that "Allow enabling anonymous access on individual containers" is checked.
+4. Click through to "Review" and click "Create". Your storage account is now deployed.
+5. Go to the Storage Account resource. Click the "Containers" blade on the left-hand menu.
+6. Create 5 containers, called "audio-to-translate", "files-to-translate", "source-history", "transcribed-audio", "translated-files". For each container, ensure that the access level is set to "Anonymous access level" > "Container".
+7. Click on one of the Containers created and select the "Properties" blade from the left-hand side. Copy the URL displayed up to the "/" before the container name. Paste it into Notepad temporarily.
+8. Step back into the Storage Account main page and click the "Access keys" blade on the left-hand side. Copy one of the keys and paste it into Notepad temporarily. Also make a note of the 'Storage account name'.
+9. Your storage account is ready.
 
 #### Deploy the Azure AI Translator service
 

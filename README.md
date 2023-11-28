@@ -220,7 +220,7 @@ After you have deployed the necessary infrastructure and noted the keys and endp
 14. After a moment, the import will complete and the banner will show "Solution "Digpacks Translator imported successfully".
 ![Deploy14](https://github.com/DigPacksPhilMVP/digpacks-translator-pro/assets/147208426/4f3d9ed4-2236-4409-9f33-717e4caa0aad)
 
-15. In your solution, select the Environment Variable. Change it to the endpoint for your Blob Storage account - it will look like this:
+15. In your solution, select the Environment Variable. Change it to the endpoint for your Blob Storage account - it will look like the below - and click Save:
 
 ``` https://<account name>.blob.core.windows.net ```
 

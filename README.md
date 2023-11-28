@@ -170,7 +170,7 @@ This can be done via IaC, but to keep things simple, we'll use the Azure Portal 
 14. Select the "Keys and Endpoint" blade on the left-hand panel, copy and note one of the keys. Make a note of both Endpoint given.
 15. Your speech service is ready.
 
-### Power Platform deployment
+## Power Platform deployment
 
 After you have deployed the necessary infrastructure and noted the keys and endpoints as per the Infrastructure deployment section, you can import the .zip file containing the Power App, Power Automate flows and other elements. 
 

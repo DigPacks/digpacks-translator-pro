@@ -220,12 +220,16 @@ After you have deployed the necessary infrastructure and noted the keys and endp
 14. After a moment, the import will complete and the banner will show "Solution "Digpacks Translator imported successfully".
 ![Deploy14](https://github.com/DigPacksPhilMVP/digpacks-translator-pro/assets/147208426/4f3d9ed4-2236-4409-9f33-717e4caa0aad)
 
-15. Navigate to Apps > click on the app and click Play
+15. In your solution, select the Environment Variable. Change it to the endpoint for your Blob Storage account - it will look like this:
 
-16. On first launch, you will be asked to confirm your authorisation to the connected services. Click 'Allow'.
+``` https://<account name>.blob.core.windows.net ```
+
+16. Navigate to Apps > click on the app and click Play
+
+17. On first launch, you will be asked to confirm your authorisation to the connected services. Click 'Allow'.
 ![Deploy15](https://github.com/DigPacksPhilMVP/digpacks-translator-pro/assets/147208426/6435d8ee-bc72-4042-af44-b0cd4a7d1f2f)
 
-17. The app is now deployed. Feel free to share it with users/groups, using the in-built Security Role of "Digpacks Translator Pro - User" which contains everything they need to use the app and services. You will need to share the Translator key with them when they first load the app.
+18. The app is now deployed. Feel free to share it with users/groups, using the in-built Security Role of "Digpacks Translator Pro - User" which contains everything they need to use the app and services. You will need to share the Translator key with them when they first load the app.
 
 
 

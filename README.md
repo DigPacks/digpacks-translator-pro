@@ -97,7 +97,9 @@ You can deploy Application Insights to monitor the usage of both your Storage Ac
 
 The recommended method of sharing the solution with other internal users, as per the license, is to [add them to a new or existing Azure Security Group](https://learn.microsoft.com/en-us/entra/fundamentals/how-to-manage-groups). This can either be direct or dynamic membership, but must be an Azure Security Group (not an M365 Group). The Security Group must have the permanent assignment of Storage Blob Data Contributor to the Storage Account deployed. 
 
-When the Power Platform solution has been deployed to your Production environment, [share the Power App](https://learn.microsoft.com/en-us/power-apps/maker/canvas-apps/share-app) with the Azure Security Group. Assign the group the solution's Security Role of "DigPacks Translator Pro - User". 
+When the Power Platform solution has been deployed to your Production environment, [share the Power App](https://learn.microsoft.com/en-us/power-apps/maker/canvas-apps/share-app) with the Azure Security Group. Assign the group the solution's Security Role of "DigPacks Translator Pro - User".
+
+**IMPORTANT: To get you set up quickly, we use the API Key authentication method to access the services via the Power Platform. However, when you deploy, feel free to change this to Azure Entra ID authentication if you like.**
 
 ## Azure infrastructure deployment
 

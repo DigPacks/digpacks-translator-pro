@@ -104,7 +104,7 @@ The deployment of the infrastructure for this solution is undertaken via ARM tem
 
 There are many ways by which you can deploy the infrastructure for this solution, but the supported method is to use the ARM (Azure Resource Manager) templates provided in this repo. You can customise them as you see fit, but they provide the baseline for what is needed for the application to operate.
 
-### Azure template installation (manual)
+### Azure template installation (quickstart)
 
 1. Download template.json from this repo.
 2. In Azure Portal, search for and select 'Template specs'. Alternatively, you can search for 'Deploy a custom template'.

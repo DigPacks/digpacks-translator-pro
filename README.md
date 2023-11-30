@@ -9,8 +9,9 @@
 3) This solution <b>preserves the presentation of the source file</b> (so, doesn’t just extract text and translate that like AI Builder services; rather, translates the text and retains the overall structure of the source document, and outputs in the same file format as the source document).
 4) The <b>source document’s language is automatically detected</b>; meaning that users don’t need to know what language the source document is in before translating it to, most likely, English. 
 5) Translate <b>large files in large batches</b> – individual document size up to 25MB, up to 15 documents in one translation batch (max 375MB per batch).
-6) <b>Transcribe and translate speech</b> all within the app. Apply punctuation and breaks where you like, and the translator does the rest.
-7) A <b>custom Security Role so that only people/groups you choose can use the application</b>.
+6) Translate a <b>SharePoint document libary<b/> - maximum of 10 files in the libary
+7) <b>Transcribe and translate speech</b> all within the app. Apply punctuation and breaks where you like, and the translator does the rest.
+8) A <b>custom Security Role so that only people/groups you choose can use the application</b>.
 
 ## Account permissions
 

@@ -12,7 +12,7 @@
 6) Translate a <b>SharePoint document libary</b> - maximum of 10 files in the library
 7) <b>Transcribe and translate speech</b> all within the app. Apply punctuation and breaks where you like, and the translator does the rest. Supported audio files are .wav, .mp3 and .ogg (more coming soon).
 8) A <b>custom Security Role so that only people/groups you choose can use the application</b>.
-9) We now have local user selectable UI in Welsh as well as English.
+9) We now have local-user <b>selectable UI in Welsh as well as English</b>.
 
 ## Account permissions
 
